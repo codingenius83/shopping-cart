@@ -67,9 +67,36 @@ while game:
         print(f'you have {total_items} total items')
         input('\npress anything to continue')
     elif choice == '5':
-
-        
-    elif choice == '10':
+        print('\n', '-'*10, 'current total', '-'*10, '\n')
+        total_price = 0
+        for item in shopping_cart:
+            location = products.index(item)
+            print(f'{item}      {prices[location]}$')
+            total_price += prices[location]
+        print(f'\ntotal price is {total_price}$')
+        input('\npress anything to continue')
+    elif choice == '6':
+        print('\n', '-'*10, 'checkout', '-'*10, '\n')
+        total_price = 0
+        for item in shopping_cart:
+            location = products.index(item)
+            total_price += prices[location]
+        print(f'subtotal: ${total_price}')
+        discountp_ = 0
+        if total_price >= 10 and total_price < 20:
+            discountp_ = 5
+        elif total_price >= 20 and total_price < 40:
+            discountp_ = 10
+        elif total_price >= 40:
+            discountp_ = 15
+        print(f'discount: {discountp_}%')
+        amount_saved = (discountp_ / 100) * total_price
+        print(f'amount saved: ${amount_saved}')
+        final_total = total_price - amount_saved
+        print(f'\nFinal Total: ${final_total}')
+        if total_price == 0:
+            print('wow you bought nothing thanks for wasting my time')
         game = False
+
 
     

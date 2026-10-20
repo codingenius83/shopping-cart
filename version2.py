@@ -61,10 +61,16 @@ def remove_product():
                 shopping_cart.pop(item_remove)
                 print(shopping_cart)
                 validating = False
+        input('press anything to continue')
 
         
 def display_cart():
-    pass
+    print('')
+    print('\ny o u r    c a r t\n')
+    counter = 1
+    for i in shopping_cart:
+        print(counter, f'. {i}')
+        counter += 1
 def display_total():
     pass
 def check_out():
